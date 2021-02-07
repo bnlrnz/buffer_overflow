@@ -2,8 +2,8 @@
 
 void secretFunction()
 {
-    printf("Congratulations!\n");
-    printf("You have entered in the secret function!\n");
+    printf("\x1B[31mCongratulations!\x1B[0m\n");
+    printf("\x1B[33mYou have entered in the secret function!\x1B[0m\n");
 }
 
 void echo()
