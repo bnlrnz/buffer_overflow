@@ -1,6 +1,8 @@
 # buffer_overflow
 
-To run overflows outside of gdb disable aslr:
+Demonstrating buffer bverflow in 32 Bit and 64 Bit binaries. The binaries are compiled as position dependent code/executable (-no-pie).
+
+If you enable PIE/PIC you need to recalculate the function address of "secretFunction" and run the buffer overflow in gdb (which disables aslr internally) or temporarily deactivate aslr globally for your kernel or locally in a shell session.
 
 ### Global
 ```bash
@@ -14,13 +16,4 @@ echo 2 | sudo tee /proc/sys/kernel/randomize_va_space
 ### Local
 ```bash
 setarch -R /bin/bash
-```
-
-# Older GCC versions
-Older gcc versions seam to produce binaries that are exploitable without disabling aslr in the kernel.
-To test this you can user the Dockerfile in this repo to build the vuln64 (no multilib support).
-Switch the python64.py lines where the rip value is written. Exploit with payload without gdb.
-
-```bash
-docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 make vuln64
 ```
