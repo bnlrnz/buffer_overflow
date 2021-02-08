@@ -15,10 +15,10 @@ vuln32: main32.o payload32
 vuln64: main64.o payload64
 
 run32: vuln32
-	./vuln32 < payload32
+	- ./vuln32 < payload32
 
 run64: vuln64
-	./vuln64 < payload64
+	- ./vuln64 < payload64
 
 main32.o: main.c
 	$(CC) -o vuln32 -m32 main.c -O0 -fno-stack-protector -no-pie
