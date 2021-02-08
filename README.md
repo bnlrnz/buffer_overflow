@@ -18,7 +18,7 @@ make clean # you know what it does
 
 If you enable PIE/PIC you need to recalculate the function address of "secretFunction" and run the buffer overflow in gdb (which disables [aslr](https://en.wikipedia.org/wiki/Address_space_layout_randomization) internally) or temporarily deactivate aslr globally for your kernel or locally in a shell session.
 
-### Global
+### Global (needs root)
 ```bash
 echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 ```
